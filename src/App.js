@@ -65,7 +65,7 @@ function App(){
   }
 
   return(
-    <div style={{maxWidth: "800px",margin: "0 auto",padding: "200px"}}>
+    <div style={{maxWidth: "800px",margin: "0 auto",padding: "20px"}}>
       <h1>Car Rental App</h1>
 
       {!token ?(
@@ -91,7 +91,7 @@ function App(){
         </div>
       )}
       {cars.map(car => (
-        <div key={car.id} style={{border: "1px solid #ccc",padding: "200px",marginBottom: "200px",borderRadius: "8px"}}>
+        <div key={car.id} style={{border: "1px solid #ccc",padding: "15px",marginBottom: "10px",borderRadius: "8px"}}>
           <h3>{car.brand} - {car.model}</h3>
           <p>💰Price: ${car.price_per_day}/day</p>
           {token && (
