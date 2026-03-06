@@ -10,7 +10,7 @@ function App(){
   const[price,setPrice] = useState("");
 
   useEffect(()=>{
-    fetch("https://car-rental-api-lcsx.onrender.com/cars")
+    fetch("https://car-rental-api-lcsx.onrender.com")
     .then(res => res.json())
     .then(data => setCars(data))
     
@@ -18,7 +18,7 @@ function App(){
 
 
   function handleLogin(){
-    fetch("https://car-rental-api-lcsx.onrender.com/login",{
+    fetch("https://car-rental-api-lcsx.onrender.com",{
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({username,password})
@@ -37,7 +37,7 @@ function App(){
   }
 
   function handleAddCar(){
-    fetch("https://car-rental-api-lcsx.onrender.com/cars",{
+    fetch("https://car-rental-api-lcsx.onrender.com",{
       method: "POST",
       headers:{
         "Content-Type": "application/json",
@@ -47,13 +47,13 @@ function App(){
     })
     .then(res => res.json())
     .then (() => {
-      fetch("https://car-rental-api-lcsx.onrender.com/cars")
+      fetch("https://car-rental-api-lcsx.onrender.com")
         .then(res => res.json())
         .then(data => setCars(data))
     })
   }
   function handleDelete(carId){
-    fetch(`https://car-rental-api-lcsx.onrender.com/cars/${carId}`,{
+    fetch(`https://car-rental-api-lcsx.onrender.com/${carId}`,{
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`
@@ -91,7 +91,7 @@ function App(){
         </div>
       )}
       {cars.map(car => (
-        <div key={car.id} style={{border: "1px solid #ccc",padding: "15px",marginBottom: "10px",borderRadius: "8px"}}>
+        <div key={car.id} style={{border: "1px solid #ccc",padding: "15px",marginBottom: "15px",borderRadius: "8px"}}>
           <h3>{car.brand} - {car.model}</h3>
           <p>💰Price: ${car.price_per_day}/day</p>
           {token && (
